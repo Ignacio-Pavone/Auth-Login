@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://localhost:3000/css">
+
+  <title>Document</title>
+</head>
+<style>
+  input[type=text],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  input[type=password],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+</style>
+
+<body>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <div class="login-page">
+    <div class="form mt-4 shadow-lg p-3 mb-5 bg-transparen rounded ">
+      <form id="loginUser" class="login-form">
+        <input type="text" id="login" placeholder="User" />
+        <input type="password" id="password" placeholder="Password" />
+        <button type="submit">login</button>
+        <p class="message">Not registered? <a href="./register">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+<script>
+
+  const sampleForm = document.getElementById("loginUser");
+  sampleForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let username = document.getElementById("login").value
+    let password = document.getElementById("password").value
+
+    let formData = {
+      username: username,
+      password: password,
+    }
+
+    let formDataJSON = JSON.stringify(formData)
+    fetch('http://localhost:3000/api/v1/users/auth/login', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: formDataJSON,
+    })
+      .then(function (response) {
+        console.log(response.status)
+        if (response.status === 200) {
+          window.location.replace("./profile")
+        } else {
+          alert('worng password or username')
+        };
+      });
+  })
+
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:3000/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <div class="register-page">
+        <div class="form">
+            <form id="registerUser" class="register-form">
+                <input type="text" id="registerName" placeholder="name" />
+                <input type="password" id="registerPass" placeholder="password" />
+                <button type="submit">create</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+  const sampleForm = document.getElementById("registerUser");
+  sampleForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let username = document.getElementById("registerName").value
+    let password = document.getElementById("registerPass").value
+    let formData = {
+      username: username,
+      password: password,
+    }
+
+    let formDataJSON = JSON.stringify(formData)
+    console.log(formDataJSON)
+    fetch('http://localhost:3000/api/v1/users/auth/register', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: formDataJSON,
+    })
+  });
+
+</script>
+
+</html>
