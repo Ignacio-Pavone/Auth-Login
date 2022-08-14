@@ -11,6 +11,9 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 import v1UsersRoutes from './v1/routes/users.js'
+import v1ProfilesRoutes from './v1/routes/profiles.js'
+import v1PostsRoutes from './v1/routes/posts.js'
+
 import register from './html-routes/indexRoutes.js'
 
 dotenv.config()
@@ -32,6 +35,8 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use("/api/v1/users", v1UsersRoutes)
+app.use("/api/v1/profiles", v1ProfilesRoutes)
+app.use("/api/v1/posts", v1PostsRoutes)
 app.use('/register', register)
 
 

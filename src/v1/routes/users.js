@@ -3,7 +3,6 @@ import express from 'express'
 import passport from 'passport'
 const router = express.Router()
 import userController from "../../controllers/userController.js"
-
 router
     .get("/", userController.getAllUsers)
     .get("id/:id", userController.getOneUserById)
@@ -11,6 +10,8 @@ router
     .post("/", userController.createUser)
     //.put("/:id", userController.updateUser)
     .delete("/:id", userController.deleteUser)
+
+
 
 router
     .post('/auth/login', function (req, res, next) {

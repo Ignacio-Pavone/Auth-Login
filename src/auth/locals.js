@@ -1,6 +1,8 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import User from "../database/User.js";
+import Profile from "../database/Profile.js";
+
 import bcrypt from "bcrypt";
 
 passport.serializeUser((user, done) => {
@@ -36,6 +38,7 @@ passport.use('local-register', new LocalStrategy({
                 username: username,
                 password: generateHash(password)
             }
+            
             await User.createUser(newUser)
             done(null, newUser)
         }
