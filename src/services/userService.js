@@ -27,7 +27,7 @@ const updateOneUser = (id, user) => {
 }
 
 const deleteOneUser = (id) => {
-    const deletedUser = User.deleteOneUser(id)
+    const deletedUser = User.deleteUser(id)
     return deletedUser
 }
 
