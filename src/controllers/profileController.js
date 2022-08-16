@@ -32,7 +32,7 @@ const createProfile = async (req, res) => {
         username
     }
     const createdProfile = await profileService.createProfile(newProfile)
-    res.status(201).json(createProfile)
+    res.status(201).json(createdProfile)
 }
 
 const updateProfile = async (req, res) => {

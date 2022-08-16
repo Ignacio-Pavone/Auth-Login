@@ -6,6 +6,10 @@ import flash from 'connect-flash'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import path from 'path'
+import cookieParser from 'cookie-parser'
+
+
+
 import "./auth/locals.js"
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -15,6 +19,7 @@ import v1ProfilesRoutes from './v1/routes/profiles.js'
 import v1PostsRoutes from './v1/routes/posts.js'
 
 import register from './html-routes/indexRoutes.js'
+import profile from './html-routes/profileRoutes.js'
 
 dotenv.config()
 const app = express()
@@ -26,6 +31,7 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(cors())
+app.use(cookieParser())
 app.use(flash())
 app.use(session({
     secret: process.env.SECRET,
@@ -38,6 +44,7 @@ app.use("/api/v1/users", v1UsersRoutes)
 app.use("/api/v1/profiles", v1ProfilesRoutes)
 app.use("/api/v1/posts", v1PostsRoutes)
 app.use('/register', register)
+app.use('/profile', profile)
 
 
 app.get('/', (req, res) => {

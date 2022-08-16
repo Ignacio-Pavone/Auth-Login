@@ -38,9 +38,9 @@
     <div class="form mt-4 shadow-lg p-3 mb-5 bg-transparen rounded ">
       <form id="loginUser" class="login-form">
         <input type="text" id="login" placeholder="User" />
-        <input type="password" id="password" placeholder="Password" />
+        <input type="password" id="password" placeholder="Password"/>
         <button type="submit">login</button>
-        <p class="message">Not registered? <a href="./register">Create an account</a></p>
+        <p class="message">Not registered? <a href="./register.html">Create an account</a></p>
       </form>
     </div>
   </div>
@@ -72,7 +72,7 @@
       .then(function (response) {
         console.log(response.status)
         if (response.status === 200) {
-          window.location.replace("./profile")
+          window.location.assign("./profile.html") 
         } else {
           alert('worng password or username')
         };

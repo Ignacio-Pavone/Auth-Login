@@ -45,7 +45,7 @@ const updateUser = async (id, user) => {
     return updatedUser
 }
 
-const deleteUser = async (id) => {
+const deleteOneUser = async (id) => {
     const deletedUser = await prisma.user.delete({
         where: {
             id: Number.parseInt(id)
@@ -60,5 +60,5 @@ export default {
     getOneUserByUsername,
     createUser,
     updateUser,
-    deleteUser
+    deleteOneUser
 }
