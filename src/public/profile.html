@@ -15,18 +15,17 @@
 
 <body>
   <div class="container d-flex justify-content-center align-items-center">
-    <div class="card">
+    <div class="card bg-light border-warning">
       <div class="upper">
-        <img src="https://i.ibb.co/VHbcp9P/Qtrsrk5.jpg" class="img-fluid">
+        
       </div>
-      <div class="user text-center">
+      <div class="user text-center col-form-label">
         <div class="profile">
           <img src="https://i.ibb.co/wsH6VyB/JgYD2nQ.jpg" class="rounded-circle" width="80">
         </div>
       </div>
-      <div class="mt-5 text-center">
+      <div class="mt-5 text-center font-italic font">
         <h4 id = "fullname" class="mb-0"></h4>
-        <span id = "" class=" d-block ">PROFILE DATA</span>
         <span id = "age" class="text-muted d-block "></span>
         <span id = "description" class="text-muted d-block "></span>
         <span id = "username" class="text-muted d-block mb-2"></span>
@@ -57,9 +56,9 @@ fetch(url)
                 const mostrarData = (data) => {
                 
                 document.getElementById('fullname').innerHTML = data.fullname
-                document.getElementById('age').innerHTML = data.age
-                document.getElementById('description').innerHTML = data.description
-                document.getElementById('username').innerHTML = data.username
+                document.getElementById('age').innerHTML = 'Age: ' + data.age
+                document.getElementById('description').innerHTML = 'Description: ' + data.description
+                document.getElementById('username').innerHTML = 'Username: ' + data.username
                 }
 
                 

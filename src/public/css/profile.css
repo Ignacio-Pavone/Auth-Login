@@ -1,20 +1,22 @@
 body {
-       background-color: #545454;
+       background: linear-gradient(90deg, rgb(34, 36, 32) 0%, rgb(42, 44, 41) 50%);
        font-family: "Consolas", sans-serif;
-       font-weight: 300;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
        height: 100vh;
+       
 }
 
 .card {
 
+       background-color: rgb(192, 21, 21);
        width: 380px;
-       border: none;
+       border: 3px solid rgb(216, 0, 0);
        border-radius: 15px;
        padding: 8px;
-       background-color: #fff;
        position: relative;
        height: 370px;
 }
@@ -51,7 +53,7 @@ body {
        left: 38%;
        height: 90px;
        width: 90px;
-       border: 3px solid #fff;
+       border: 3px solid rgb(0, 0, 0);
        border-radius: 50%;
 
 }
