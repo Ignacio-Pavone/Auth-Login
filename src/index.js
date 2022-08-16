@@ -67,6 +67,10 @@ app.get('/profile', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/profile.html'))
 })
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 })

@@ -6,7 +6,7 @@ const router = express.Router()
 import userController from "../../controllers/userController.js"
 router
     .get("/", userController.getAllUsers)
-    .get("id/:id", userController.getOneUserById)
+    .get("/id/:id", userController.getOneUserById)
     .get("/username/:username", userController.getOneUserByUsername)
     .post("/", userController.createUser)
     //.put("/:id", userController.updateUser)
@@ -26,7 +26,7 @@ router
                 if (err) { return next(err); }
                 const body = { id: user.id, username: user.username };
                 const token = jwt.sign({ user: body }, process.env.SECRET, { expiresIn: '1h' });
-                res.cookie("token", token, { httpOnly: true })
+                res.cookie("token", token, { httpOnly: false })
                 return res.redirect('/profile');
             })
         })(req, res, next);
@@ -61,8 +61,6 @@ router.use((req, res, next) => {
     isLoggedIn(req, res, next)
     next()
 })
-
-
 
 const isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
