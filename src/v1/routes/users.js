@@ -1,9 +1,11 @@
 
 import express from 'express'
 import passport from 'passport'
-import jwt from 'jsonwebtoken'
+
 const router = express.Router()
 import userController from "../../controllers/userController.js"
+import jwt from 'jsonwebtoken'
+
 router
     .get("/", userController.getAllUsers)
     .get("/id/:id", userController.getOneUserById)
@@ -17,12 +19,13 @@ router
 router
     .post('/auth/login', function (req, res, next) {
         passport.authenticate('local-login', function (err, user, info) {
-            if (err) { return next(err); 
+            if (err) {
+                return next(err);
             }
-            if (!user) { 
-                return res.redirect('/login'); 
+            if (!user) {
+                return res.redirect('/login');
             }
-            req.login(user, {session: false}, async (err)=>{
+            req.login(user, { session: false }, async (err) => {
                 if (err) { return next(err); }
                 const body = { id: user.id, username: user.username };
                 const token = jwt.sign({ user: body }, process.env.SECRET, { expiresIn: '1h' });
@@ -38,16 +41,21 @@ router
         passReqToCallback: true
     }))
 
-    .get("/auth/logout", (req, res, next) => {
+    /*.get("/auth/logout", (req, res, next) => {
         req.logout()
         res.redirect("/auth/login")
     })
-    /*
-    .get("/profile", (req, res, next) => {
-        res.send("Profile page")
+*/
+    .post('/auth/logout', function (req, res) {
+        req.logout(function (err) {
+            if (err) { 
+                return next(err); 
+            }
+            res.clearCookie('token')
+            res.redirect('/login')
+        })
     })
-    
-    */
+
     .get("/profile", passport.authenticate("jwt", { session: false }), (req, res) => {
         res.json({
             message: "You are logged in",
@@ -57,10 +65,10 @@ router
     }),
 
 
-router.use((req, res, next) => {
-    isLoggedIn(req, res, next)
-    next()
-})
+    router.use((req, res, next) => {
+        isLoggedIn(req, res, next)
+        next()
+    })
 
 const isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {

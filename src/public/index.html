@@ -70,7 +70,6 @@
       body: formDataJSON,
     })
       .then(function (response) {
-        console.log(response.status)
         if (response.status === 200) {
           window.location.assign("/profile") 
         } else {
