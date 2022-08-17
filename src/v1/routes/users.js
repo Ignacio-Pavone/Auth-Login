@@ -23,8 +23,9 @@ router
                 return next(err);
             }
             if (!user) {
-                return res.redirect('/login');
+                return res.status(404).send('user not found');
             }
+            
             req.login(user, { session: false }, async (err) => {
                 if (err) { return next(err); }
                 const body = { id: user.id, username: user.username };

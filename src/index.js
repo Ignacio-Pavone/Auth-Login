@@ -13,7 +13,7 @@ import { dirname } from 'path';
 import v1UsersRoutes from './v1/routes/users.js'
 import v1ProfilesRoutes from './v1/routes/profiles.js'
 import v1PostsRoutes from './v1/routes/posts.js'
-import {checkToken} from './middleware/checktoken.js'
+import {checkTokenlogin, checkTokenprofile} from './middleware/checktoken.js'
 
 //Variables
 dotenv.config()
@@ -47,11 +47,11 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/register.html'))
 })
 
-app.get('/profile', checkToken, (req, res) => {
+app.get('/profile', checkTokenprofile, (req, res) => {
     res.sendFile(path.join(__dirname, '/public/profile.html'))
 })
 
-app.get('/login', (req, res) => {
+app.get('/login', checkTokenlogin, (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 

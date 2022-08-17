@@ -73,9 +73,10 @@
         if (response.status === 200) {
           window.location.assign("/profile")
         } else {
-          alert('worng password or username')
-        };
-      });
+          console.log(response)
+          alert('wrong password or username')
+        }
+      })
   })
 
 

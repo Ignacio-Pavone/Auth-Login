@@ -1,8 +1,8 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import User from "../database/User.js";
-import {Strategy as JWTStrategy} from "passport-jwt";
-import {ExtractJwt as ExtractJwt} from "passport-jwt";
+import { Strategy as JWTStrategy } from "passport-jwt";
+import { ExtractJwt as ExtractJwt } from "passport-jwt";
 import bcrypt from "bcrypt";
 
 passport.serializeUser((user, done) => {
@@ -38,7 +38,7 @@ passport.use('local-register', new LocalStrategy({
                 username: username,
                 password: generateHash(password)
             }
-            
+
             await User.createUser(newUser)
             done(null, newUser)
         }
@@ -53,7 +53,8 @@ passport.use('local-login', new LocalStrategy({
     if (!user) {
         return done(null, false, {})
     }
-    const chek = await validatePassword(password, user.password)
+    const chek = validatePassword(password, user.password)
+    console.log(chek)
     if (!chek) {
         return done(null, false, {})
     }
@@ -64,9 +65,9 @@ passport.use(new JWTStrategy({
     secretOrKey: process.env.SECRET,
     jwtFromRequest: ExtractJwt.fromUrlQueryParameter('secret_token')
 }, async (token, done) => {
-    try{
-        return done(null,token)
-    }catch (err) {
+    try {
+        return done(null, token)
+    } catch (err) {
         return done(err)
     }
 }))
