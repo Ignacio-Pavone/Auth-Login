@@ -41,7 +41,6 @@ const tokenParts = document.cookie.split('.');
 const encodedPayload = tokenParts[1];
 const rawPayload = atob(encodedPayload);
 const user = JSON.parse(rawPayload);
-//let result = body.toUpperCase();
 let username = user.user.username
 let url = '/api/v1/profiles/username/' + username
 fetch(url)
