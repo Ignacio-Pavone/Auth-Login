@@ -38,12 +38,9 @@
   </div>
 </body>
 <script>
-  /*
-    fetch('http://localhost:3000/api/v1/users/auth/logout')
-                .catch(error => console.log(error))*/
-
   async function logout() {
-    await fetch('http://localhost:3000/api/v1/users/auth/logout', {
+    
+    await fetch('/api/v1/users/auth/logout', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

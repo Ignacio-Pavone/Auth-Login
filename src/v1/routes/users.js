@@ -59,7 +59,6 @@ router
         })
     }),
 
-
     router.use((req, res, next) => {
         isLoggedIn(req, res, next)
         next()
