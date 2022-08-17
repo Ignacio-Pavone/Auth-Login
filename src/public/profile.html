@@ -19,9 +19,10 @@
       <div class="upper">
 
       </div>
+
       <div class="user text-center col-form-label">
         <div class="profile">
-          <img src="https://i.ibb.co/wsH6VyB/JgYD2nQ.jpg" class="rounded-circle" width="80">
+          <div id="test" > </div>
         </div>
       </div>
       <div class="mt-5 text-center font-italic font">
@@ -62,6 +63,7 @@
   const rawPayload = atob(encodedPayload);
   const user = JSON.parse(rawPayload);
   let username = user.user.username
+
   let url = '/api/v1/profiles/username/' + username
   fetch(url)
     .then(response => response.json())
@@ -72,6 +74,11 @@
     document.getElementById('age').innerHTML = 'Age: ' + data.age
     document.getElementById('description').innerHTML = 'Description: ' + data.description
     document.getElementById('username').innerHTML = 'Username: ' + data.username
+    const html = '<img src="' + data.img + '" alt="Test" class="rounded-circle" width="80"/>';
+    const div = document.getElementById("test");
+    div.innerHTML = html;
+
+
   }
 
 

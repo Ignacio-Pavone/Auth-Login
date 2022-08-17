@@ -37,7 +37,8 @@ body {
 
 .user {
        font-family: "Consolas", sans-serif;
-       position: relative;
+       position:relative;
+       
 }
 
 .profile img {

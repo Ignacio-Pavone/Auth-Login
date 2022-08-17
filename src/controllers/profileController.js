@@ -19,7 +19,7 @@ const getOneProfileByUsername = async (req, res) => {
 }
 
 const createProfile = async (req, res) => {
-    const {fullname,description,age,username} = req.body
+    const {fullname,description,age,username, img} = req.body
     if (!fullname || !description || !age || !username) {
         res.status(400).json({
             message: 'Missing required fields'
@@ -29,7 +29,8 @@ const createProfile = async (req, res) => {
         fullname,
         description,
         age,
-        username
+        username,
+        img
     }
     const createdProfile = await profileService.createProfile(newProfile)
     res.status(201).json(createdProfile)

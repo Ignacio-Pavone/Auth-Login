@@ -20,6 +20,7 @@
         <input type="text" id="fullname" placeholder="Full Name" required />
         <input type="text" id="description" placeholder="Description" required />
         <input type="number" min="15" id="age" placeholder="Age" required />
+        <input type="text" min="15" id="img" placeholder="Profile URL img https://..."/>
         <button type="submit">create</button>
       </form>
     </div>
@@ -35,6 +36,7 @@
     let fullname = document.getElementById("fullname").value
     let description = document.getElementById("description").value
     let age = document.getElementById("age").value
+    let img = document.getElementById("img").value
     let formData = {
       username: username,
       password: password,
@@ -45,6 +47,7 @@
       description: description,
       age: Number.parseInt(age),
       username: username,
+      img:img
     }
     let formDataJSON = JSON.stringify(formData)
     let profileDataJSON = JSON.stringify(profileData)
