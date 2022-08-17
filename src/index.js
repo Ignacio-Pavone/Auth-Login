@@ -7,9 +7,6 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import path from 'path'
 import cookieParser from 'cookie-parser'
-
-
-
 import "./auth/locals.js"
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
