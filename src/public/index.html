@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css">
+  <link rel="stylesheet" href="public/css/style.css">
 
-  <title>Document</title>
+  <title>Login</title>
 </head>
 <style>
   input[type=text],
@@ -38,7 +38,7 @@
     <div class="form mt-4 shadow-lg p-3 mb-5 bg-transparen rounded ">
       <form id="loginUser" class="login-form">
         <input type="text" id="login" placeholder="User" required />
-        <input type="password" id="password" placeholder="Password" required/>
+        <input type="password" id="password" placeholder="Password" required />
         <button type="submit">login</button>
         <p class="message">Not registered? <a href="/register">Create an account</a></p>
       </form>
@@ -71,7 +71,7 @@
     })
       .then(function (response) {
         if (response.status === 200) {
-          window.location.assign("/profile") 
+          window.location.assign("/profile")
         } else {
           alert('worng password or username')
         };

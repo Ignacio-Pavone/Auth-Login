@@ -10,17 +10,15 @@ import cookieParser from 'cookie-parser'
 import "./auth/locals.js"
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
 import v1UsersRoutes from './v1/routes/users.js'
 import v1ProfilesRoutes from './v1/routes/profiles.js'
 import v1PostsRoutes from './v1/routes/posts.js'
 
-import register from './html-routes/indexRoutes.js'
-import profile from './html-routes/profileRoutes.js'
+import exp from 'constants'
 
 dotenv.config()
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -40,21 +38,10 @@ app.use(passport.session())
 app.use("/api/v1/users", v1UsersRoutes)
 app.use("/api/v1/profiles", v1ProfilesRoutes)
 app.use("/api/v1/posts", v1PostsRoutes)
-app.use('/register', register)
-app.use('/profile', profile)
 
+app.use(express.static('src'))
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-})
-
-app.get('/css', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/css/style.css'))
-})
-
-app.get('/cssprofile', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/css/profile.css'))
-})
+app.use('/public', express.static(__dirname+'/src'))
 
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/register.html'))

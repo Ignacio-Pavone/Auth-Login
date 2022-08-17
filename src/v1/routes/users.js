@@ -41,11 +41,6 @@ router
         passReqToCallback: true
     }))
 
-    /*.get("/auth/logout", (req, res, next) => {
-        req.logout()
-        res.redirect("/auth/login")
-    })
-*/
     .post('/auth/logout', function (req, res) {
         req.logout(function (err) {
             if (err) { 
