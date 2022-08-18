@@ -54,7 +54,6 @@ passport.use('local-login', new LocalStrategy({
         return done(null, false, {})
     }
     const chek = validatePassword(password, user.password)
-    console.log(chek)
     if (!chek) {
         return done(null, false, {})
     }
