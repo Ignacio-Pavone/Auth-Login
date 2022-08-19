@@ -29,7 +29,7 @@ router
             req.login(user, { session: false }, async (err) => {
                 if (err) { return next(err); }
                 const body = { id: user.id, username: user.username };
-                const token = jwt.sign({ user: body }, process.env.SECRET, { expiresIn: '1h' });
+                const token = jwt.sign({ user: body }, process.env.SECRET, { expiresIn: '60' });
                 res.cookie("token", token, { httpOnly: false })
                 return res.redirect('/profile');
             })

@@ -29,6 +29,6 @@ model Post {
   id       Int      @id @default(autoincrement())
   title    String
   content  String
-  username String?  @unique
+  username String? 
   author   Profile? @relation(fields: [username], references: [username])
 }

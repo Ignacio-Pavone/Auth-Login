@@ -19,8 +19,11 @@ const getOneProfileById = async (id) => {
             id: Number.parseInt(id)
         },
         include: {
-            user: true
-        }
+            user:{
+                select: { id: true, username: true, password: false }
+            },
+           
+        },
     })
     return profile
 }
@@ -31,8 +34,13 @@ const getOneProfileByUsername = async (username) => {
             username: username
         },
         include: {
-            user: true
-        }
+            user:{
+                select: { id: true, username: true, password: false }
+            },
+            Post:{
+                select: { title: true, content: true, author: true, username: true}
+            }
+        },
     })
     return profile
 }
