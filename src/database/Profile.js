@@ -38,7 +38,7 @@ const getOneProfileByUsername = async (username) => {
                 select: { id: true, username: true, password: false }
             },
             Post:{
-                select: { title: true, content: true, author: true, username: true}
+                select: { id: true, title: true, content: true, author: true, username: true}
             }
         },
     })

@@ -7,18 +7,19 @@ body {
 
 .container {
        height: 100vh;
+      
        
 }
 
 .container2 {
        height: 600px;
-       width: 500px;
+       width: 800px;
        font-family: "Consolas", sans-serif;
        text-align:center;
        justify-content: space-between;
        position: relative;
-       top: -150px;
-       left: 34%;
+       top: -710px;
+       left: 40%;
        border: 1px solid rgb(141, 10, 10);
 }
 
@@ -31,6 +32,8 @@ body {
        padding: 8px;
        position: relative;
        height: 370px;
+       top: -150px;
+       left: -35%;
 }
 
 .upper {
