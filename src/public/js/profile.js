@@ -1,26 +1,37 @@
+const fetchProfile = (username) => {
+  let url = '/api/v1/profiles/username/' + username
+  fetch(url)
+    .then(response => response.json())
+    .then(data => mostrarData(data))
+    .catch(error => console.log(error))
+}
+
 const mostrarData = (data) => {
   document.getElementById('fullname').innerHTML = data.fullname
   document.getElementById('age').innerHTML = 'Age: ' + data.age
   document.getElementById('description').innerHTML = 'Description: ' + data.description
   document.getElementById('username').innerHTML = 'Username: ' + data.username
   document.getElementById('countpost').innerHTML = 'Cantidad Posts: ' + data.Post.length
-  let body = ''
-  if (data.Post.length > 0) {
-    for (let i = 0; i < data.Post.length; i++) {
-      console.log(data.Post[i])
-      body += `<tr><td>${data.Post[i].id}</td><td>${data.Post[i].title}</td><td>${data.Post[i].content}</td></tr>`
-    }
+  document.getElementById("test").innerHTML = getProfileIMG(data.img)
+  document.getElementById('data').innerHTML = setdivswithPosts(data.Post)
+}
 
+const setdivswithPosts = (data) => {
+  let body = ''
+  if (data.length > 0) {
+    const nuevoarr = data.map(array => `<tr><td>${array.id}</td><td>${array.title}</td><td>${array.content}</td></tr>`).join("")
+    body += nuevoarr
   } else {
     const string = 'Post'
     const string2 = 'Something'
     body += `<tr><td>${string}</td><td>${string2}</td></tr>`
   }
-  document.getElementById('data').innerHTML = body
+  return body
+}
 
-  const html = '<img src="' + data.img + '" alt="Test" class="rounded-circle" width="80"/>';
-  const div = document.getElementById("test");
-  div.innerHTML = html;
+const getProfileIMG = (img) => {
+  const imgroute = '<img src="' + img + '" alt="Test" class="rounded-circle" width="80"/>';
+  return imgroute
 }
 
 const getUserbyToken = () => {
@@ -48,10 +59,3 @@ async function logout() {
   });
 }
 
-const fetchProfile = (username) => {
-  let url = '/api/v1/profiles/username/' + username
-  fetch(url)
-    .then(response => response.json())
-    .then(data => mostrarData(data))
-    .catch(error => console.log(error))
-}

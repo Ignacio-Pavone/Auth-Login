@@ -133,7 +133,8 @@
       <form id="createPost" class="formContainer bg-dark">
         <input type="text" class="rounded" id="title" placeholder="Title" required />
         <input type="text" id="content" class="rounded" placeholder="Content" required>
-        <button type="createpost" class="btn btn-dark rounded position " onclick="createPost(username)">Create Post</button>
+        <button type="createpost" class="btn btn-dark rounded position " onclick="createPost(username)">Create
+          Post</button>
         <button type="button" class="btn btn-dark rounded " onclick="closeForm()">Close</button>
       </form>
     </div>
@@ -153,10 +154,8 @@
   </div>
 </body>
 <script>
-
   let username = getUserbyToken()
   fetchProfile(username)
-
 </script>
 
 <script>
