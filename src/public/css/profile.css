@@ -86,3 +86,90 @@ body {
 
        font-size: 29px;
 }
+
+* {
+       box-sizing: border-box;
+     }
+   
+     .openBtn {
+       display: flex;
+       justify-content: left;
+     }
+   
+     .openButton {
+       border: none;
+       border-radius: 5px;
+       background-color: #1c87c9;
+       color: white;
+       padding: 14px 20px;
+       cursor: pointer;
+       position: fixed;
+     }
+   
+     .loginPopup {
+       position: relative;
+       text-align: center;
+       width: 100%;
+     }
+   
+     .formPopup {
+       display: none;
+       position: fixed;
+       left: 50%;
+       top: 5%;
+       transform: translate(-50%, 5%);
+       border: 3px solid #999999;
+       z-index: 9;
+     }
+   
+     .formContainer {
+       font-family: "Consolas", sans-serif;
+       max-width: 300px;
+       padding: 20px;
+       background-color: #fff;
+     }
+   
+     .formContainer input[type=text],
+     .formContainer input[type=password] {
+       font-family: "Consolas", sans-serif;
+       outline: 0;
+       background: #f2f2f2;
+       width: 100%;
+       border: 0;
+       margin: 0 0 15px;
+       padding: 15px;
+       box-sizing: border-box;
+       font-size: 14px;
+     }
+   
+     .formContainer input[type=text]:focus,
+     .formContainer input[type=password]:focus {
+       background-color: #ddd;
+       outline: none;
+     }
+   
+     .formContainer .btn {
+       font-family: "Consolas", sans-serif;
+       text-transform: uppercase;
+       outline: 0;
+       background: darkslategrey;
+       width: 100%;
+       border: 0;
+       padding: 15px;
+       color: #FFFFFF;
+       font-size: 14px;
+       -webkit-transition: all 0.3 ease;
+       transition: all 0.3 ease;
+       cursor: pointer;
+       border-radius: 0px;
+     }
+   
+     .formContainer .cancel {
+       background-color: #cc0000;
+     }
+   
+     .formContainer .btn:hover,
+     .openButton:hover {
+       color: #cc0000;
+       opacity: 1;
+     }

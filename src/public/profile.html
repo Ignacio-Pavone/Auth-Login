@@ -14,93 +14,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 
 </head>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-
-  .openBtn {
-    display: flex;
-    justify-content: left;
-  }
-
-  .openButton {
-    border: none;
-    border-radius: 5px;
-    background-color: #1c87c9;
-    color: white;
-    padding: 14px 20px;
-    cursor: pointer;
-    position: fixed;
-  }
-
-  .loginPopup {
-    position: relative;
-    text-align: center;
-    width: 100%;
-  }
-
-  .formPopup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 5%;
-    transform: translate(-50%, 5%);
-    border: 3px solid #999999;
-    z-index: 9;
-  }
-
-  .formContainer {
-    max-width: 300px;
-    padding: 20px;
-    background-color: #fff;
-  }
-
-  .formContainer input[type=text],
-  .formContainer input[type=password] {
-    font-family: "Consolas", sans-serif;
-    outline: 0;
-    background: #f2f2f2;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-
-  .formContainer input[type=text]:focus,
-  .formContainer input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-
-  .formContainer .btn {
-    font-family: "Consolas", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: darkslategrey;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    border-radius: 0px;
-  }
-
-  .formContainer .cancel {
-    background-color: #cc0000;
-  }
-
-  .formContainer .btn:hover,
-  .openButton:hover {
-    color: #cc0000;
-    opacity: 1;
-  }
-</style>
 
 <body>
   <div class="container d-flex justify-content-center align-items-center">
@@ -120,8 +33,9 @@
         <span id="username" class="text-muted d-block "></span>
         <span id="countpost" class="text-muted d-block "></span>
         <br>
+        <button id="logout" class="btn btn-dark" onclick="openForm('popupForm')"> Create Post </button>
+        <button id="logout" class="btn btn-dark" onclick="openForm('popupForm2')"> Delete Post </button>
         <button id="logout" class="btn btn-dark" onclick="logout()"> Logout </button>
-        <button id="logout" class="btn btn-dark" onclick="openForm()"> Create Post </button>
       </div>
     </div>
     <br>
@@ -131,11 +45,20 @@
   <div class="loginPopup bg-dark">
     <div class="formPopup" id="popupForm">
       <form id="createPost" class="formContainer bg-dark">
-        <input type="text" class="rounded" id="title" placeholder="Title" required />
-        <input type="text" id="content" class="rounded" placeholder="Content" required>
-        <button type="createpost" class="btn btn-dark rounded position " onclick="createPost(username)">Create
+        <input type="text" id="title" placeholder="Title" required />
+        <input type="text" id="content" placeholder="Content" required>
+        <button type="createpost" class="btn btn-dark rounded position " onclick="createPost(username), refreshPage()">Create
           Post</button>
-        <button type="button" class="btn btn-dark rounded " onclick="closeForm()">Close</button>
+        <button type="button" class="btn btn-dark rounded " onclick="closeForm('popupForm')">Close</button>
+      </form>
+    </div>
+  </div>
+  <div class="loginPopup bg-dark">
+    <div class="formPopup" id="popupForm2">
+      <form id="deletePost" class="formContainer bg-dark">
+        <input type="text" id="id" placeholder="ID" required />
+        <button type="deletepost" class="btn btn-dark rounded position " onclick="deletePost()">Delete Post</button>
+        <button type="button" class="btn btn-dark rounded " onclick="closeForm('popupForm2')">Close</button>
       </form>
     </div>
   </div>
@@ -159,12 +82,10 @@
 </script>
 
 <script>
-  function openForm() {
-    document.getElementById("popupForm").style.display = "block";
+  function refreshPage() {
+    window.location.reload();
   }
-  function closeForm() {
-    document.getElementById("popupForm").style.display = "none";
-  }
+
 </script>
 
 </html>

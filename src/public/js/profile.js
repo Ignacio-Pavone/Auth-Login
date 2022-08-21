@@ -24,7 +24,8 @@ const setdivswithPosts = (data) => {
   } else {
     const string = 'Post'
     const string2 = 'Something'
-    body += `<tr><td>${string}</td><td>${string2}</td></tr>`
+    const string3 = 'Please'
+    body += `<tr><td>${string}</td><td>${string2}</td><td>${string3}</td></tr>`
   }
   return body
 }

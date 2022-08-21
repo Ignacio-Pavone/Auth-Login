@@ -17,3 +17,23 @@ async function createPost(username) {
     body: formDataJSON,
   })
 }
+
+async function deletePost() {
+  let id = document.getElementById("id").value
+  console.log('hola')
+  await fetch('/api/v1/posts/' + id, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+}
+
+function openForm(form) {
+  document.getElementById(form).style.display = "block";
+}
+
+function closeForm(form) {
+  document.getElementById(form).style.display = "none";
+}

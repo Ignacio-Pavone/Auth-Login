@@ -11,6 +11,7 @@
 }
 
 .form {
+  font-family: "Consolas", sans-serif;
   border-radius: 7px;
   position: relative;
   z-index: 1;
@@ -113,4 +114,35 @@ body {
   font-family: "Consolas", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input[type=text],
+select,
+textarea {
+  
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=password],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=number],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }

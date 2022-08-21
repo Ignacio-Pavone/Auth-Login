@@ -7,33 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/css/style.css">
 
+
   <title>Login</title>
 </head>
-<style>
-  input[type=text],
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-
-  input[type=password],
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-</style>
 
 <body>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <div class="login-page">
     <div class="form mt-4 shadow-lg p-3 mb-5 bg-transparen rounded ">
       <form id="loginUser" class="login-form">
@@ -45,36 +26,6 @@
     </div>
   </div>
 </body>
-<script>
-  const sampleForm = document.getElementById("loginUser");
-  sampleForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    let username = document.getElementById("login").value
-    let password = document.getElementById("password").value
-
-    let formData = {
-      username: username,
-      password: password,
-    }
-
-    let formDataJSON = JSON.stringify(formData)
-    fetch('/api/v1/users/auth/login', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: formDataJSON,
-    })
-      .then(function (response) {
-        if (response.status === 200) {
-          window.location.assign("/profile")
-        } else {
-          console.log(response)
-          alert('wrong password or username')
-        }
-      })
-  })
-</script>
+<script src="public/js/login.js"></script>
 
 </html>
