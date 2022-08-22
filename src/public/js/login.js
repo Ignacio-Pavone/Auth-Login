@@ -22,7 +22,6 @@ sampleForm.addEventListener("submit", async (e) => {
       if (response.status === 200) {
         window.location.assign("/profile")
       } else {
-        console.log(response)
         alert('wrong password or username')
       }
     })

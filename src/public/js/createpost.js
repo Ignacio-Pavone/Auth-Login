@@ -20,14 +20,23 @@ async function createPost(username) {
 
 async function deletePost() {
   let id = document.getElementById("id").value
-  console.log('hola')
-  await fetch('/api/v1/posts/' + id, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  })
+  if (id >= 0) {
+    await fetch('/api/v1/posts/' + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }).then(function (response) {
+      if (response.status === 200) {
+        alert('delete succesfull')
+      }
+    })
+  } else {
+    alert('incorrect value')
+  }
+
+
 }
 
 function openForm(form) {
