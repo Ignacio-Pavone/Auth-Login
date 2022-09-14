@@ -36,7 +36,6 @@ const getProfileIMG = (img) => {
 }
 
 const getUserbyToken = () => {
-
   const tokenParts = document.cookie.split('.');
   const encodedPayload = tokenParts[1];
   const rawPayload = atob(encodedPayload);

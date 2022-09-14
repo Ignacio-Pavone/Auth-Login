@@ -9,9 +9,7 @@ const getAllUsers = async () => {
             username : true,
             password:false
         }
-    })
-
-        
+    })      
     return users
 
 }

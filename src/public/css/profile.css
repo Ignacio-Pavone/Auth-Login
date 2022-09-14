@@ -7,53 +7,52 @@ body {
 
 .container {
        height: 100vh;
-      
-       
 }
 
 .container2 {
-       height: 600px;
+       height: auto;
        width: 800px;
        font-family: "Consolas", sans-serif;
-       text-align:center;
+       text-align: center;
        justify-content: space-between;
-       position: relative;
-       top: -710px;
-       left: 40%;
        border: 1px solid rgb(141, 10, 10);
+       max-height: 600px;
+       overflow: auto;
+       position: relative;
+       bottom: 35%;
+       left: 2rem;
+
 }
 
 .card {
-
        background-color: rgb(192, 21, 21);
-       width: 380px;
+       width: auto;
        border: 3px solid rgb(216, 0, 0);
        border-radius: 15px;
        padding: 8px;
-       position: relative;
-       height: 370px;
-       top: -150px;
-       left: -35%;
+       display: flex;
+       justify-content: center;
+       height: auto;
 }
 
 .upper {
-
        height: 100px;
-
 }
 
-.upper img {
+#test {
+       text-align: center;
+       display: flex;
+       justify-content: center;
+}
 
-       width: 100%;
-       border-top-left-radius: 10px;
-       border-top-right-radius: 10px;
-
+.rounded-circle {
+       margin: 0 auto;
 }
 
 .user {
        font-family: "Consolas", sans-serif;
-       position:relative;
-       
+       position: relative;
+
 }
 
 .profile img {
@@ -74,14 +73,6 @@ body {
 
 }
 
-.follow {
-
-       border-radius: 15px;
-       padding-left: 20px;
-       padding-right: 20px;
-       height: 35px;
-}
-
 .stats span {
 
        font-size: 29px;
@@ -89,14 +80,14 @@ body {
 
 * {
        box-sizing: border-box;
-     }
-   
-     .openBtn {
+}
+
+.openBtn {
        display: flex;
        justify-content: left;
-     }
-   
-     .openButton {
+}
+
+.openButton {
        border: none;
        border-radius: 5px;
        background-color: #1c87c9;
@@ -104,15 +95,15 @@ body {
        padding: 14px 20px;
        cursor: pointer;
        position: fixed;
-     }
-   
-     .loginPopup {
+}
+
+.loginPopup {
        position: relative;
        text-align: center;
        width: 100%;
-     }
-   
-     .formPopup {
+}
+
+.formPopup {
        display: none;
        position: fixed;
        left: 50%;
@@ -120,17 +111,17 @@ body {
        transform: translate(-50%, 5%);
        border: 3px solid #999999;
        z-index: 9;
-     }
-   
-     .formContainer {
+}
+
+.formContainer {
        font-family: "Consolas", sans-serif;
        max-width: 300px;
        padding: 20px;
        background-color: #fff;
-     }
-   
-     .formContainer input[type=text],
-     .formContainer input[type=password] {
+}
+
+.formContainer input[type=text],
+.formContainer input[type=password] {
        font-family: "Consolas", sans-serif;
        outline: 0;
        background: #f2f2f2;
@@ -140,15 +131,15 @@ body {
        padding: 15px;
        box-sizing: border-box;
        font-size: 14px;
-     }
-   
-     .formContainer input[type=text]:focus,
-     .formContainer input[type=password]:focus {
+}
+
+.formContainer input[type=text]:focus,
+.formContainer input[type=password]:focus {
        background-color: #ddd;
        outline: none;
-     }
-   
-     .formContainer .btn {
+}
+
+.formContainer .btn {
        font-family: "Consolas", sans-serif;
        text-transform: uppercase;
        outline: 0;
@@ -162,14 +153,14 @@ body {
        transition: all 0.3 ease;
        cursor: pointer;
        border-radius: 0px;
-     }
-   
-     .formContainer .cancel {
+}
+
+.formContainer .cancel {
        background-color: #cc0000;
-     }
-   
-     .formContainer .btn:hover,
-     .openButton:hover {
+}
+
+.formContainer .btn:hover,
+.openButton:hover {
        color: #cc0000;
        opacity: 1;
-     }
+}
